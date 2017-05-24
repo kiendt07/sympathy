@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require jquery-fileupload/vendor/jquery.ui.widget
+//= require jquery-fileupload/jquery.fileupload
+//= require jquery-fileupload/jquery.iframe-transport
 //= require turbolinks
 //= require_tree .

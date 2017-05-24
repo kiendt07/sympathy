@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-6">
+    <form action="https://<%= ENV["S3_BUCKET_NAME"] %>.s3-<%= ENV["AWS_REGION"] %>.amazonaws.com"
+          method="post" enctype="multipart/form-data" class="direct-upload">
+      <input type="hidden" name="key">
+      <input type="hidden" name="AWSAccessKeyId" value="<%= ENV["AWS_ACCESS_KEY_ID"] %>">
+      <input type="hidden" name="acl" value="public-read">
+      <input type="hidden" name="policy">
+      <input type="hidden" name="signature">
+      <input type="hidden" name="success_action_status" value="201">
+      <!-- UPLOAD ICON -->
+      <div class="text-center">
+        <input type="file" name="file" class="hidden-file" id="hidden-file">
+        <label for="hidden-file">
+          <div>Choose a file from your computer</div>
+        </label>
+      </div>
+      <!-- PROGRESS BAR -->
+      <div class="progress-note"></div>
+      <div class="progress" style="display: none">
+        <div class="progress-bar progress-bar-info progress-bar-striped"
+             role="progressbar">
+        </div>
+      </div>
+    </form>
+    <p>or</p>
+    <input type="text" name="track[url]" id="track_url_raw" placeholder="Paste Zing MP3 link here...">
+
+    <div class="row">
+      <h4 class="text-center">Preview</h4>
+      <div class="track-preview">
+        <h3 class="text-center" id="track-preview-name"></h3>
+        <audio controls>
+          <source src="" type="audio/mpeg">
+        </audio>
+        <iframe scrolling="no" width="640" height="180" src="" frameborder="0" allowfullscreen="true"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <%= form_for @track do |f| %>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 form-new-track">
+          <div class="form-group form-title">
+            <%= f.text_field :name, placeholder: t(".name"), value: @track.name,
+              class: "form-control", :required => true %>
+          </div>
+
+          <%= f.hidden_field :url %>
+          <%= f.hidden_field :is_private %>
+          <div class="form-group">
+            <%= f.submit t(".submit"), class: "btn btn-primary", disabled: "disabled", id: "submit" %>
+            <span>or</span>
+            <button id="submit-private" class="btn btn-default" disabled="disabled"><%= t ".submit_private" %></button>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

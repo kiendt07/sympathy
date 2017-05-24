@@ -115,6 +115,7 @@ ActiveRecord::Schema.define(version: 20170529064048) do
     t.integer  "user_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.string   "url"
     t.index ["user_id"], name: "index_tracks_on_user_id", using: :btree
   end
 
@@ -137,6 +138,14 @@ ActiveRecord::Schema.define(version: 20170529064048) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "identities", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "playlist_tracks", "playlists"
+  add_foreign_key "playlist_tracks", "tracks"
+  add_foreign_key "playlists", "users"
+  add_foreign_key "posts", "users"
+  add_foreign_key "tracks", "users"
 end
