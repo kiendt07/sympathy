@@ -65,3 +65,9 @@ en:
     you_sure?: "You sure?"
     follow: "Follow"
     unfollow: "Unfollow"
+  tracks:
+    form:
+      submit: "Share"
+      submit_private: "Upload privately to your collection"
+      name: "Track title..."
+    new:

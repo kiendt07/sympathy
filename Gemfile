@@ -19,6 +19,11 @@ gem "devise"
 gem "omniauth"
 gem "omniauth-facebook"
 
+gem "carrierwave"
+gem "carrierwave-aws"
+gem "aws-sdk"
+gem "jquery-fileupload-rails"
+
 group :development, :test do
   gem "byebug", platform: :mri
   gem "dotenv-rails"

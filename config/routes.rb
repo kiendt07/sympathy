@@ -3,8 +3,18 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
-  devise_for :users, class_name: "FormUser", controllers:
-  {omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
+  devise_for :users,
+    class_name: "FormUser", controllers: {
+      omniauth_callbacks: "omniauth_callbacks", registrations: "registrations"}
+
+  resources :users, only: [:show] do
+    resources :tracks, only: [:show]
+  end
+  resources :tracks, except: [:show]
+
+  resources :posts, only: [:show, :destroy]
+
+  resources :signed_urls, only: :index
 
   get "/home", to: "pages#show", as: "home"
   get "/", to: "pages#index", as: "landing"

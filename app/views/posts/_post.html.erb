@@ -1,0 +1,5 @@
+<div class="post">
+  <%= post.content.name if post.content.name.present? %>
+  <%= render "content", post: post %>
+  <%= link_to "delete", post_path(post), method: "delete", class: "btn btn-danger" %>
+</div>
