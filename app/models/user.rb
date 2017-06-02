@@ -30,6 +30,10 @@ class User < ApplicationRecord
     end
   end
 
+  def like? post
+    self.likes.find_by(post_id: post.id) ? true : false
+  end
+
   def follow other_user
     following << other_user
   end

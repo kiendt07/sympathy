@@ -9,6 +9,9 @@
     </p>
     <p><%= @post.content_type %> </p>
     <hr>
+    <span class="like_form">
+      <%= render "likes/like_form", post: @post %>
+    </span>
     <div class="well" id="well">
       <h4><%= t "comment.leave_a_comment" %></h4>
       <%= form_for @comment, url: comments_path, html: {method: :post}, remote: true  do |f| %>

@@ -81,3 +81,6 @@ en:
     created_at: "created at"
     the_form_contains: "the form contains"
     comment_deleted: "comment deleted!"
+  like: 
+    like: " like"
+    unlike: " unlike"
