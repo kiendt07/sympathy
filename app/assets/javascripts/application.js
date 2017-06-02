@@ -18,3 +18,11 @@
 //= require jquery-fileupload/jquery.iframe-transport
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  var userAvatars = $('.user-avatar');
+  $.each(userAvatars, function(){
+    var url = $(this).data('user-avatar');
+    $(this).css('background-image', 'url('+ url +')');
+  });
+});

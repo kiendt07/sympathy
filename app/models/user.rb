@@ -15,19 +15,26 @@ class User < ApplicationRecord
     foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
   def match_with identity
     self.update_attributes email: identity.email if
-      self.email? && identity.email
+      self.email.nil? && identity.email
     self.update_attributes name: identity.name if
-      self.name? && identity.name
+      self.name.nil? && identity.name
     self.update_attributes avatar: identity.image if
-      self.avatar? && identity.image
+      self.avatar.nil? && identity.image
     if self.persisted?
       identity.update_attributes user_id: self.id
       return FormUser.find self.id
     else
       return self
     end
+  end
+
+  def facebook_link
+    identity = identities.find_by provider: "facebook"
+    "https://www.facebook.com/#{identity.uid}" if
+      identity.present?
   end
 
   def like? post

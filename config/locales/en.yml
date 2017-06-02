@@ -12,6 +12,7 @@ en:
       title: *site_name
       home: "Home"
       explore: "Explore"
+      new_track: "New track"
       go_to_profile: "Go to profile"
       edit_profile: "Edit profile"
       sign_out: "Sign out"
@@ -51,6 +52,7 @@ en:
         register: *register
         cancel_account: "Cancel Account"
         check_sure: "Are you sure?"
+        submit: "Update"
     sessions:
       new:
         title: *site_name
@@ -61,6 +63,26 @@ en:
     post:
       share: "Share"
       delete: "Delete"
+  users:
+    show:
+      facebook_profile: "Facebook Profile"
+      posts: "Posts"
+      likes: "Likes"
+      my_collection: "My Collection"
+  tracks:
+    form:
+      h3_create_by: "Create your new track by"
+      upload_text: "upload an audio file"
+      label-track_url_raw_placeholder: "Paste Zing MP3 link here..."
+      small_or: "or"
+      preview: "Preview"
+      input_track_name: "Track title..."
+      submit: "Share"
+      submit_private: "Add to your collection privately"
+    post:
+      reposted_this: "reposted this"
+    content:
+      warning_not_available: "The content that you've requested is not available."
 
   user:
     view_my_profile: "view my profile"
@@ -85,3 +107,9 @@ en:
     created_at: "created at"
     the_form_contains: "the form contains"
     comment_deleted: "comment deleted!"
+  tracks:
+    form:
+      submit: "Share"
+      submit_private: "Upload privately to your collection"
+      name: "Track title..."
+    new:

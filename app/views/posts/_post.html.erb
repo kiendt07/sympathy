@@ -1,4 +1,4 @@
-<div class="post">
+<div class="post panel">
   <% if post.content.is_post? %>
     <small>
       <%= link_to post.user_name || post.user_email, user_path(post.user) %>
@@ -11,13 +11,16 @@
   <% end %>
 
   <% if post.content.is_post? %>
-    <%= render "posts/content", post: post.content %>
+    <div class="repost">
+      <%= render "posts/content", post: post.original_post %>
+    </div>
   <% else %>
-    <%= render "posts/content", post: post %>
+    <div>
+      <%= render "posts/content", post: post.original_post %>
+    </div>
   <% end %>
-
   <div class="post-action">
-    <%= link_to t(".share"), posts_path(post),
+    <%= link_to t(".share"), post_shareds_path(post_id: post.id),
       method: :post %>
     <%= link_to t(".delete"), post_path(post),
       method: :delete, class: "btn btn-danger pull-right" %>
