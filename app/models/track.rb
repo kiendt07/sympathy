@@ -8,6 +8,14 @@ class Track < ApplicationRecord
 
   validates :url, format: URI.regexp(%w(http https))
 
+  def is_embed?
+    self.url.include? "mp3.zing.vn"
+  end
+
+  def get_code_from_embed_url
+    self.url.split("/")[-1].split(".")[0] if is_embed?
+  end
+
   private
 
   def save_new_post
