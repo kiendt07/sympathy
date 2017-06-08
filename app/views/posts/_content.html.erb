@@ -1,0 +1,17 @@
+<div class="post-content">
+  <% if post.content %>
+    <div class="post-details">
+      <h3><%= post.content.name %></h3>
+      <%= link_to post.user_name || post.user_email, user_path(post.user) %>
+      <small class="time-ago pull-right">
+        <span class="glyphicon glyphicon-time"></span>
+        <%= distance_of_time_in_words post.created_at, Time.now %>
+      </small>
+    </div>
+    <%= render "tracks/track", track: post.content %>
+  <% else %>
+    <p class="text-warning">
+      <%= t ".warning_not_available" %>
+    </p>
+  <% end %>
+</div>

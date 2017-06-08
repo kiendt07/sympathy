@@ -1,0 +1,27 @@
+$grey: #888;
+$black: #000;
+
+.post {
+  .post-content {
+    border-left: 1px $grey solid;
+    margin-left: 10px;
+    padding-left: 10px;
+
+    .post-details {
+      margin: 10px 0;
+    }
+
+    .post-user {
+      color: $black;
+      font-size: 14px;
+    }
+  }
+
+  .time-ago {
+    margin: 5px 0;
+  }
+}
+
+.content-name {
+  font-size: 20px;
+}
