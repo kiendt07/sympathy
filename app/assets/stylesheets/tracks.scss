@@ -1,0 +1,32 @@
+$orange: #f50;
+$grey: #e5e5e5;
+$white: #fff;
+
+.hidden-file {
+  display: none;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: .1px;
+  z-index: -1;
+
+  +label {
+    background-color: $orange;
+    border: 1px solid $grey;
+    border-radius: 4px;
+    color: $white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 100;
+    height: 40px;
+    padding: 8px 15px;
+
+    >div {
+      display: inline-block;
+      margin-top: 3px;
+      vertical-align: top;
+    }
+  }
+}

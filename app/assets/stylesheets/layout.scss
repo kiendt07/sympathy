@@ -1,5 +1,6 @@
 $milk: #eee;
 $fade: rgba(0, 0, 0, .3);
+$grey: #888;
 
 .circle {
   background-position: center center;
@@ -11,6 +12,16 @@ $fade: rgba(0, 0, 0, .3);
   cursor: pointer;
   display: block;
   height: 27px;
-  margin: 5px auto;
+  margin: 5px 15px;
   width: 27px;
+}
+
+.big-circle {
+  display: inline-block;
+  height: 75px;
+  width: 75px;
+}
+
+small {
+  color: $grey;
 }
