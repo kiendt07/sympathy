@@ -12,8 +12,10 @@ Rails.application.routes.draw do
   	resources :relationships, only: [:index]
   end
   resources :relationships, only: [:create, :destroy]
-  resources :posts, only: [:index, :show] do
+  resources :posts, only: [:create, :show, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
+  resources :signed_urls, only: :index
+  resources :tracks, only: [:new, :create]
   resources :comments, only: [:create]
 end

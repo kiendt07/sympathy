@@ -1,7 +1,8 @@
 <div class="col-md-10 col-md-offset-1 comment" id="comment-<%= comment.id %>">
-  <%= link_to comment.user_name %><br>
+  <%= link_to comment.user_name, user_path(comment.user) %><br>
   <%= comment.content %><br>
   <span class="timestamp">
-    <%= t "comment.created_at" %> <%= timeago(comment.created_at) %>
+    <%= t "comment.created_at" %>
+    <%= distance_of_time_in_words comment.created_at, Time.now %>
   </span>
 </div>

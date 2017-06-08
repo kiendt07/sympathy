@@ -37,6 +37,10 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+          <li>
+            <%= link_to t(".new_track"),
+              new_track_path, class: "btn btn-success" %>
+          </li>
           <li class="dropdown">
             <a class="dropdown-toggle circle" data-toggle="dropdown"
             role="button" aria-haspopup="true" aria-expanded="false"
