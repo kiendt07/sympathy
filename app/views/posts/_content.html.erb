@@ -8,7 +8,11 @@
         <%= distance_of_time_in_words post.created_at, Time.now %>
       </small>
     </div>
-    <%= render "tracks/track", track: post.content %>
+    <% if post.content.is_track? %>
+      <%= render "tracks/track", track: post.content %>
+    <% else %>
+      <%= render "playlists/playlist", playlist: post.content %>
+    <% end %>
   <% else %>
     <p class="text-warning">
       <%= t ".warning_not_available" %>

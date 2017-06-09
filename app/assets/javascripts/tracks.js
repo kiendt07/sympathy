@@ -67,9 +67,13 @@ $(document).on('turbolinks:load', function() {
     $('#submit').removeAttr('disabled');
     $('#submit-private').removeAttr('disabled');
   });
+
+  $(document).on('click', '.add-to-playlist .dropdown-menu', function (e) {
+    e.stopPropagation();
+  });
 });
 
 function submitPrivate() {
   $('form#new_post #post_is_private').val(true);
-  $('form#new_post').submit();
+  $('form#new_track').submit();
 }

@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require js-routes
+//= require sweetalert
 //= require jquery-fileupload/vendor/jquery.ui.widget
 //= require jquery-fileupload/jquery.fileupload
 //= require jquery-fileupload/jquery.iframe-transport
@@ -26,3 +28,5 @@ $(document).on('turbolinks:load', function(){
     $(this).css('background-image', 'url('+ url +')');
   });
 });
+
+jQuery.extend(window, Routes);

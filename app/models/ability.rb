@@ -8,6 +8,8 @@ class Ability
     else
       can :manage, Post
       can :manage, Comment
+      can :manage, Playlist
+      can :manage, Playlisting
     end
     can [:create, :destroy], Like, user_id: user.id
   end

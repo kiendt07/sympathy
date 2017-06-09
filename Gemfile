@@ -26,6 +26,9 @@ gem "carrierwave-aws"
 gem "aws-sdk"
 gem "jquery-fileupload-rails"
 
+gem "js-routes"
+gem "sweetalert-rails", "~> 1.1", ">= 1.1.3"
+
 group :development, :test do
   gem "byebug", platform: :mri
   gem "dotenv-rails"

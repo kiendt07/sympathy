@@ -1,4 +1,4 @@
-<div class="post panel">
+<div class="post panel" id="post_<%= post.id %>">
   <% if post.content.is_post? %>
     <small>
       <%= link_to post.user_name || post.user_email, user_path(post.user) %>
@@ -25,5 +25,5 @@
     <%= link_to t(".delete"), post_path(post),
       method: :delete, class: "btn btn-danger pull-right" %>
   </div>
-  <hr>
+  <%= render "add_to_playlist", post: post %>
 </div>
