@@ -14,4 +14,8 @@ class Post < ApplicationRecord
     post = post.content while post.content.is_post?
     post
   end
+
+  def original_content
+    self.original_post.content
+  end
 end

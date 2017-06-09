@@ -1,0 +1,7 @@
+var playlistElements = $("#post_<%= @post.id %> ul .playlist-link");
+playlistElements.remove();
+
+var playlistsContainer = $("#post_<%= @post.id %> ul");
+playlistsContainer.prepend(
+  "<%= j render_playlists_links(@post, @playlists).html_safe %>"
+);

@@ -1,0 +1,27 @@
+<span class="add-to-playlist" data-post-id="<%= post.id %>">
+  <%= link_to "", playlists_path(post_id: post.id, format: :js),
+    remote: true, class: "dropdown-toggle glyphicon glyphicon-plus-sign",
+    data: {"toggle": "dropdown","aria-haspopup": true,
+      "aria-expanded": false} %>
+  <ul class="dropdown-menu">
+    <li role="separator" class="divider"></li>
+    <li>
+      <a data-toggle="collapse"
+        data-target="#new-playlist-post-<%= post.id %>"
+        aria-expanded="false" aria-controls="collapseExample">
+        <%= t ".new_playlist" %>
+      </a>
+    </li>
+    <li class="collapse" id="new-playlist-post-<%= post.id %>">
+      <%= form_for [post, current_user.playlists.build], remote: true do |f| %>
+        <div class="input-group">
+          <%= f.text_field :name, class: "form-control" %>
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit"><%= t ".create" %>
+            </button>
+          </span>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+</span>

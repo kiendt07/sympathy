@@ -1,0 +1,16 @@
+<% if @playlisting.persisted? %>
+  sweetAlert({
+    title: "<strong><%= t ".success" %></strong>",
+    text: "<em><%= @playlisting.track_name %></em> "+
+      "<%= t ".added" %> <strong><%= @playlisting.playlist_name %></strong>",
+    type: "success",
+    html: true
+  });
+<% else %>
+  sweetAlert({
+    title: "<strong><%= t ".failed" %></strong>",
+    text: "<%= j render "shared/error_messages", object: @playlisting %>",
+    type: "error",
+    html: true
+  });
+<% end %>
