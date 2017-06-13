@@ -1,6 +1,7 @@
 class Track < ApplicationRecord
   belongs_to :user
-  belongs_to :playlist_track, optional: true
+  has_many :playlistings, dependent: :destroy
+  has_many :playlists, through: :playlistings
   has_many :posts, as: :content
 
   attr_accessor :is_private

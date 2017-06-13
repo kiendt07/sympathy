@@ -70,22 +70,22 @@ ActiveRecord::Schema.define(version: 20170531230416) do
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
-  create_table "playlist_tracks", force: :cascade do |t|
+  create_table "playlists", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_playlists_on_user_id", using: :btree
+  end
+
+  create_table "playlists_tracks", force: :cascade do |t|
     t.integer  "track_id"
     t.integer  "playlist_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["playlist_id"], name: "index_playlist_tracks_on_playlist_id", using: :btree
-    t.index ["track_id"], name: "index_playlist_tracks_on_track_id", using: :btree
-  end
-
-  create_table "playlists", force: :cascade do |t|
-    t.string   "name"
-    t.boolean  "is_private", default: false
-    t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["user_id"], name: "index_playlists_on_user_id", using: :btree
+    t.index ["playlist_id", "track_id"], name: "index_playlists_tracks_on_playlist_id_and_track_id", unique: true, using: :btree
+    t.index ["playlist_id"], name: "index_playlists_tracks_on_playlist_id", using: :btree
+    t.index ["track_id"], name: "index_playlists_tracks_on_track_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
@@ -112,10 +112,9 @@ ActiveRecord::Schema.define(version: 20170531230416) do
   create_table "tracks", force: :cascade do |t|
     t.string   "name"
     t.integer  "track_type"
-    t.boolean  "is_private", default: false
     t.integer  "user_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "url"
     t.index ["user_id"], name: "index_tracks_on_user_id", using: :btree
   end
