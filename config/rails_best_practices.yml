@@ -23,7 +23,13 @@ ProtectMassAssignmentCheck: { ignored_files: 'identity\.rb' }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { except_methods: ['RegistrationsController#update_resource'] }
+RemoveUnusedMethodsInControllersCheck: {
+  except_methods: [
+    'RegistrationsController#update_resource',
+    'PlaylistingsController#create_params',
+    'PlaylistsController#create_params'
+  ]
+}
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
