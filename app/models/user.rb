@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  recommends :tracks, :playlists, :users
+
   devise :omniauthable, :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable
 
@@ -37,10 +39,6 @@ class User < ApplicationRecord
       identity.present?
   end
 
-  def like? post
-    self.likes.find_by(post_id: post.id) ? true : false
-  end
-
   def follow other_user
     following << other_user
   end
@@ -51,5 +49,9 @@ class User < ApplicationRecord
 
   def following? other_user
     following.include? other_user
+  end
+
+  def relationship_with user
+    self.active_relationships.find_by followed_id: user.id
   end
 end

@@ -1,2 +1,7 @@
 <% provide :title, t(".title") %>
-<h1><%= t ".title" %></h1>
+<div class="col-md-8">
+  <%= render "feeds" %>
+</div>
+<div class="col-md-4">
+  <%= render "layouts/sidebar" %>
+</div>
