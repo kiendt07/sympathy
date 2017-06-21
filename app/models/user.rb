@@ -18,6 +18,10 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  scope :following_ids,
+    -> { "SELECT followed_id FROM relationships
+      WHERE follower_id = :user_id" }
+
   def match_with identity
     self.update_attributes email: identity.email if
       self.email.nil? && identity.email
