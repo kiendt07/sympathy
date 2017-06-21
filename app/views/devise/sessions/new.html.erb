@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+    <%= form_for(resource, as: resource_name,
+      html: {class:"form-signin mg-btm"},
+      url: session_path(resource_name)) do |f| %>
+
+      <h3 class="heading-desc">
+        <button type="button" class="close pull-right" aria-hidden="true">×</button>
+        <%= t ".title" %> <%= t ".login" %>
+      </h3>
+      <div class="social-box">
+        <div class="row mg-btm">
+          <div class="col-md-12">
+            <a href="<%= omniauth_authorize_path(resource_name, "facebook") %>"
+            class="btn btn-primary btn-block">
+              <i class="icon-facebook"></i><%= t ".login-facebook" %>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <%= f.email_field :email, class: "form-control", type: "text",
+          placeholder: t(".email"), autofocus: true %>
+        <%= f.password_field :password, class: "form-control",
+          type: "password", placeholder: t(".password"), autocomplete: "off" %>
+        <% if devise_mapping.rememberable? %>
+          <div class="field">
+            <label for="remember_me"><%= t ".remember_me" %></label>
+            <%= f.check_box :remember_me %>
+          </div>
+        <% end %>
+        <span class="clearfix"></span>
+      </div>
+
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

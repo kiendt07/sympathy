@@ -1,0 +1,49 @@
+<% provide :title, @user.name %>
+<div class="row user-info">
+  <div class="col-sm-2">
+    <span class="circle big-circle user-avatar"
+      data-user-avatar="<%= @user.avatar %>">
+    </span>
+  </div>
+  <div class="col-sm-10">
+    <h3>
+      <%= @user.name %>
+    </h3>
+    <%= link_to t(".facebook_profile"), @user.facebook_link %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <%= link_to t(".posts"), {anchor: "posts"}, "data-toggle": "pill" %>
+      </li>
+      <li>
+        <%= link_to t(".likes"), {anchor: "likes"}, "data-toggle": "pill" %>
+      </li>
+      <li>
+        <%= link_to t(".my_collection"), {anchor: "collection"},
+          "data-toggle": "pill" %>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div id="posts" class="tab-pane fade in active">
+        <%= render @user.posts.new_first %>
+      </div>
+      <div id="likes" class="tab-pane fade">
+        <%= render @user.likes %>
+      </div>
+      <div id="collection" class="tab-pane fade">
+      </div>
+    </div>
+  </div>
+  <aside class="col-md-4 text-center">
+    <section class="stats">
+      <%= render "shared/stats", user: @user %>
+    </section>
+    <% if user_signed_in? && current_user.id != @user.id %>
+      <%= render "follow_form", user: @user, relationship: @relationship %>
+    <% end %>
+  </aside>
+</div>

@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: sympathy_development
+
+test:
+  <<: *default
+  database: sympathy_test
+  
+production:
+  <<: *default
+  database: sympathy_production
+  username: sympathy
+  password: <%= ENV['SYMPATHY_DATABASE_PASSWORD'] %>

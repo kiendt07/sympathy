@@ -1,0 +1,4 @@
+<%= link_to post_likes_path(post), method: :post, remote: true,
+  class: "btn btn-default" do %>
+    <i class="fa fa-heart-o" aria-hidden="true"><%= t "like.like" %></i>
+<% end %>

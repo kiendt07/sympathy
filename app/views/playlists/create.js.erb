@@ -1,0 +1,15 @@
+$(".collapse").collapse("hide");
+<% if @playlist.persisted? %>
+  sweetAlert(
+    "<%= t ".success" %>",
+    "<%= @post.original_content.name %><%= t ".added" %> <%= @playlist.name %>",
+    "success"
+  );
+<% else %>
+  sweetAlert(
+    "<%= t ".failed" %>",
+    "<%= render "shared/error_messages", object: @playlist %>",
+    "error",
+    html: true
+  );
+<% end %>

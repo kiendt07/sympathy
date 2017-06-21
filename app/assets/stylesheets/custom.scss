@@ -1,0 +1,303 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+
+$gray-medium-light: #eaeaea;
+$red: #f00;
+$blue: #00f;
+$b: #bbb;
+
+@mixin box-sizing {
+  box-sizing: border-box;
+}
+
+.debug-dump {
+  @include box-sizing;
+  clear: both;
+  float: left;
+  margin-top: 45px;
+  width: 100%;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  color: $gray-light;
+  font-size: 1.2em;
+  font-weight: normal;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+footer {
+  border-top: 1px solid $gray-medium-light;
+  color: $gray-light;
+
+  a {
+    color: $gray;
+
+    margin-top: 45px;
+    padding-top: 5px;
+
+    &:hover {
+      color: $gray-darker;
+    }
+}
+
+  small {
+    float: left;
+  }
+
+  ul {
+    float: right;
+    list-style: none;
+
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+aside {
+  section {
+    margin-top: 20px;
+    padding: 10px 0;
+
+    .user-info {
+      margin-top: 20px;
+    }
+
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+
+    span {
+      display: block;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    h1 {
+      font-size: 1.4em;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0;
+      text-align: left;
+    }
+  }
+
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+.stats {
+  margin-top: 0;
+  overflow: auto;
+  padding: 0;
+
+  a {
+    border-left: 1px solid $gray-lighter;
+    color: $gray;
+    float: left;
+    padding: 0 10px;
+
+    &:first-child {
+      border: 0;
+      padding-left: 0;
+    }
+
+    &:hover {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  strong {
+    display: block;
+  }
+}
+
+input,
+textarea,
+select,
+.uneditable-input {
+  @include box-sizing;
+  border: 1px solid $b;
+  margin-bottom: 15px;
+  //width: 100%;
+}
+
+.error-explanation {
+  color: $red;
+
+  ul {
+    color: $red;
+    margin: 0 0 30px;
+  }
+}
+
+.field-with-errors {
+
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  margin-top: -10px;
+
+  span {
+    font-weight: normal;
+    margin-left: 20px;
+  }
+}
+
+.session-remember-me {
+  margin-left: 0;
+  width: auto;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+
+  li {
+    border-bottom: 1px solid $gray-lighter;
+    overflow: auto;
+    padding: 10px 0;
+  }
+
+  .users.follow {
+    padding: 0;
+  }
+}
+
+.comment {
+  border-bottom: 1px solid $gray-lighter;
+  padding: 12px 0;
+}
+
+.show-comment {
+  margin-bottom: 100px;
+}
+
+.comment-form {
+  margin-top: 15px;
+}
+
+.timestamp {
+  color: $gray-light;
+  display: block;
+  font-size: 12px;
+}
+
+.cover-wrapper {
+  background-image: image-url("background_index.jpg");
+  height: 100vh;
+  position: relative;
+  /* opacity: 0.65; */
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar .btn.landing-page {
+  float: right;
+  position: relative;
+  top: 80px;
+  margin-right: 60px;
+  font-weight: 600;
+  background-color: lightgrey;
+}
+
+.navbar.navbar-inverse {
+  box-shadow: 0px 0px 10px black;
+  border-radius: 0;
+}
+
+.container > a:nth-child(1) > h2:nth-child(2), .cover-wrapper .index h2 {
+  color: white;
+  position: relative;
+  top: 10px;
+}
+
+.cover-wrapper .heroIntro {
+  font-size: 32px;
+  margin: 0 0 40px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.headerSearch {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.headerSearch input {
+  width: 100% !important;
+  padding-left: 12px;
+  height: 40px;
+  color: #666;
+  outline: 0;
+  border: 0;
+  background: #e5e5e5;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 4px;
+}
+
+.index {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  /* text-align: center; */
+  color: #000;
+}
+
+.nav .btn.new-track {
+
+}

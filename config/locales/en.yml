@@ -1,0 +1,121 @@
+en:
+  dictionary:
+    register: &register "Register"
+    login: &login "Login"
+    password: &password "Password"
+    title: &title "SYMPATHY|Share and explore your music interest"
+    site_name: &site_name "SYMPATHY"
+  layouts:
+    application:
+      title: &title "SYMPATHY|Share and explore your music interest"
+    header:
+      title: *site_name
+      home: "Home"
+      explore: "Explore"
+      new_track: "New track"
+      go_to_profile: "Go to profile"
+      edit_profile: "Edit profile"
+      sign_out: "Sign out"
+      form:
+        placeholder: "Search..."
+        submit: "Submit"
+
+  pages:
+    index:
+      title: *title
+      sign_in: &sign_in "Sign in"
+    show:
+      title: "Home "
+      profile: "Profile"
+
+  devise:
+    passwords:
+      edit:
+        title: "Change your password"
+    shared:
+      links:
+        submit: "Submit"
+    confirmations:
+      new:
+        title: "Comfirmation"
+        submit: "Submit"
+    mailer:
+      email_changed:
+        unconfirmed: "We're contacting you to notify you that your email change"
+        confirmed: "We're contacting you to notify you that your email changed "
+    registrations:
+      new:
+        title: *site_name
+        register: *register
+      edit:
+        title: *site_name
+        register: *register
+        cancel_account: "Cancel Account"
+        check_sure: "Are you sure?"
+        submit: "Update"
+    sessions:
+      new:
+        title: *site_name
+        login: *login
+        email: "Email"
+        password: *password
+  posts:
+    post:
+      share: "Share"
+      delete: "Delete"
+    add_to_playlist:
+      new_playlist: "New playlist"
+  users:
+    show:
+      facebook_profile: "Facebook Profile"
+      posts: "Posts"
+      likes: "Likes"
+      my_collection: "My Collection"
+  tracks:
+    form:
+      h3_create_by: "Create your new track by"
+      upload_text: "upload an audio file"
+      label-track_url_raw_placeholder: "Paste Zing MP3 link here..."
+      small_or: "or"
+      preview: "Preview"
+      input_track_name: "Track title..."
+      submit: "Share"
+      submit_private: "Add to your collection privately"
+      name: "Track title..."
+    post:
+      reposted_this: "reposted this"
+    content:
+      warning_not_available: "The content that you've requested is not available."
+  playlists:
+    create:
+      added: "added to the playlist"
+      success: "Success!"
+  playlistings:
+    create:
+      failed: "We're so sorry!"
+      success: "Success!"
+      added: "added to the playlist "
+
+  user:
+    view_my_profile: "view my profile"
+    all_users: "All Users"
+    delete: "delete"
+    you_sure?: "You sure?"
+    follow: "Follow"
+    unfollow: "Unfollow"
+  post:
+    posts: "posts"
+    posted_at: "Posted at"
+    ago: "ago."
+    all_entries: "All entries"
+    read_more: "read more"
+    posted_by: "Posted by"
+  comment:
+    comment_created: "comment created!"
+    follow_to_comment: "follow to comment"
+    submit: "Submit"
+    leave_a_comment: "Leave a Comment:"
+    compose_new_comment: "Compose new comment..."
+    created_at: "created at"
+    the_form_contains: "the form contains"
+    comment_deleted: "comment deleted!"

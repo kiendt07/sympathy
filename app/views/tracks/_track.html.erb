@@ -1,0 +1,11 @@
+<% if track.is_embed? %>
+  <iframe scrolling="no" width="600" height="100"
+    src="http://mp3.zing.vn/embed/song/<%= track.get_code_from_embed_url %>"
+    frameborder="0"
+    allowfullscreen="true">
+  </iframe>
+<% else %>
+  <audio controls>
+    <source src="<%= track.url %>" type="audio/mpeg">
+  </audio>
+<% end %>

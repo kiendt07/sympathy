@@ -1,0 +1,4 @@
+<span id="follow_form">
+  <%= render current_user.following?(user) ? "users/unfollow" : "users/follow",
+    user: user, relationship: relationship %>
+</span>

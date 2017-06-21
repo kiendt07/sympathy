@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <%= form_for(resource, as: resource_name,
+      url: password_path(resource_name),
+      html: {method: :put, class:"form-signin mg-btm"}) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <h3 class="heading-desc">
+        <button type="button" class="close pull-right" aria-hidden="true">
+          ×
+        </button>
+        <%= t ".title" %>
+      </h3>
+
+      <div class="main">
+        <%= f.password_field :password, class: "form-control",
+          type: "password", placeholder: t(".password"),
+          autocomplete: "off", autofocus: true %>
+
+        <%= f.password_field :password_confirmation, class: "form-control",
+          type: "password", placeholder: t(".password_confirmation"),
+          autocomplete: "off" %>
+
+        <span class="clearfix"></span>
+      </div>
+
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+</div>

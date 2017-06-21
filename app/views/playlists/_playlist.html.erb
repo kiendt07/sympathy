@@ -1,0 +1,5 @@
+<div class="playlist">
+  <% playlist.tracks.each do |track| %>
+    <%= render "tracks/track", track: track %>
+  <% end %>
+</div>

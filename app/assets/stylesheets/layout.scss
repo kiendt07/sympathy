@@ -1,0 +1,39 @@
+$milk: #eee;
+$fade: rgba(0, 0, 0, .3);
+$grey: #888;
+
+.circle {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid $milk;
+  border-radius: 99em;
+  box-shadow: 0 3px 2px $fade;
+  cursor: pointer;
+  display: block;
+  height: 40px;
+  margin: 5px 15px;
+  width: 40px;
+}
+
+.big-circle {
+  display: inline-block;
+  height: 75px;
+  width: 75px;
+}
+
+small {
+  color: $grey;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.recommended-track {
+  padding: 10px;
+}
+
+.recommended-user {
+  padding: 10px;
+}

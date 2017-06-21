@@ -1,0 +1,4 @@
+<%= link_to post_like_path(post, like), method: :delete, remote: true,
+  class: "btn btn-danger" do %>
+    <i class="fa fa-heartbeat" aria-hidden="true"><%= t "like.unlike" %></i>
+<% end %>
