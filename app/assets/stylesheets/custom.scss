@@ -165,7 +165,7 @@ select,
   @include box-sizing;
   border: 1px solid $b;
   margin-bottom: 15px;
-  width: 100%;
+  //width: 100%;
 }
 
 .error-explanation {
@@ -231,4 +231,73 @@ select,
   color: $gray-light;
   display: block;
   font-size: 12px;
+}
+
+.cover-wrapper {
+  background-image: image-url("background_index.jpg");
+  height: 100vh;
+  position: relative;
+  /* opacity: 0.65; */
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.navbar .btn.landing-page {
+  float: right;
+  position: relative;
+  top: 80px;
+  margin-right: 60px;
+  font-weight: 600;
+  background-color: lightgrey;
+}
+
+.navbar.navbar-inverse {
+  box-shadow: 0px 0px 10px black;
+  border-radius: 0;
+}
+
+.container > a:nth-child(1) > h2:nth-child(2), .cover-wrapper .index h2 {
+  color: white;
+  position: relative;
+  top: 10px;
+}
+
+.cover-wrapper .heroIntro {
+  font-size: 32px;
+  margin: 0 0 40px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.headerSearch {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.headerSearch input {
+  width: 100% !important;
+  padding-left: 12px;
+  height: 40px;
+  color: #666;
+  outline: 0;
+  border: 0;
+  background: #e5e5e5;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 4px;
+}
+
+.index {
+  position: absolute;
+  left: 0;
+  top: 40%;
+  width: 100%;
+  /* text-align: center; */
+  color: #000;
+}
+
+.nav .btn.new-track {
+
 }

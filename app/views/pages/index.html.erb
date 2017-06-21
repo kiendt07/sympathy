@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= t ".title" %></title>
-    <%= csrf_meta_tags %>
+<head>
+  <title><%= t ".title" %></title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
-  </head>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+</head>
 
-  <body>
-    <div class="container-fluid">
-      <% provide :title, t(".title") %>
-      <h1><%= t ".title" %></h1>
-      <%= link_to t(".sign_in"), new_user_session_path, class: 'btn btn-info' %>
+<body>
+<div class="container-fluid">
+  <% provide :title, t(".title") %>
+
+  <div class="cover-wrapper">
+    <nav class="navbar">
+      <div class="container nav">
+        <!--<a href="#">-->
+        <!--<img src="/soundcloud/assets/img/logo.png" height="70px" alt="" title="">-->
+        <!--<h2>HTTV music</h2>-->
+        <!--</a>-->
+        <%= link_to t(".sign_in"), new_user_session_path, class: 'btn landing-page' %>
+        <!--<a href="/soundcloud/view/signup.php"><input type="button" class="btn" value="Join us now !"></a>-->
+        <!--<a href="/soundcloud/view/login.php"><input type="button" class="btn" value="Sign In"></a>-->
+      </div>
+    </nav>
+
+    <div class="index">
+      <h2 class="heroIntro"><%= t ".title" %></h2>
+      <form class="headerSearch form-group has-feedback" role="form" action="" method="GET" accept-charset="utf-8">
+        <input id="search-box" class="form-control" type="text" name="search" placeholder="Search for tracks, playlists, people" onkeyup="" autocomplete="off">
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+        <div class="input_container">
+          <ul id="result"></ul>
+        </div>
+      </form>
     </div>
-  </body>
+  </div>
+  <%#= link_to t(".sign_in"), new_user_session_path, class: 'btn btn-info' %>
+</div>
+</body>
 </html>

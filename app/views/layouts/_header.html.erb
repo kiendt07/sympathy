@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed"
@@ -31,7 +31,7 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to t(".new_track"), new_track_path,
-              class: "btn btn-success" %>
+              class: "btn new-track" %>
           </li>
           <li class="dropdown">
             <a class="dropdown-toggle circle user-avatar"
