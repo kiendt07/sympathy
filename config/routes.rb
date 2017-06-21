@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get "/home", to: "pages#show", as: "home"
   get "/", to: "pages#index", as: "landing"
+  get "/explore", to: "explore#index", as: "explore"
   resources :users, only: [:index, :show] do
   	resources :relationships, only: [:index]
   end

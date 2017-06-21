@@ -1,10 +1,11 @@
 <div class="stats">
   <% [:following, :followers].each do |relationship| %>
     <div class="col-md-3">
-      <div id="<%= relationship %>">
+      <span id="<%= relationship %>">
         <%= user.send(relationship).size %>
-      </div>
-      <%= link_to relationship, user_relationships_path(user, type: relationship) %>
+      </span>
+      <%= link_to relationship,
+        user_relationships_path(user, type: relationship), class: "inline" %>
     </div>
   <% end %>
 </div>

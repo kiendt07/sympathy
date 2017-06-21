@@ -43,6 +43,10 @@ class User < ApplicationRecord
     following << other_user
   end
 
+  def following_ids
+    self.active_relationships.where(follower_id: self.id).map(&:id)
+  end
+
   def unfollow other_user
     following.delete other_user
   end
@@ -53,5 +57,19 @@ class User < ApplicationRecord
 
   def relationship_with user
     self.active_relationships.find_by followed_id: user.id
+  end
+
+  def recommended_or_top type
+    method_name = "recommended_#{type.pluralize}"
+    class_object = type.singularize.capitalize.constantize
+    if self.send(method_name).any?
+      self.send(method_name, 3)
+    else
+      class_object.top(count: 3)
+    end
+  end
+
+  def feeds
+    Post.ost_feeds following_ids, id
   end
 end

@@ -8,7 +8,6 @@ class CreateImpressions < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_index :impressions, [:impressionable_id, :impressionable_type],
-      unique: true
+    add_index :impressions, [:impressionable_id, :impressionable_type]
   end
 end
