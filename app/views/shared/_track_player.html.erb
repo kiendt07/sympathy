@@ -1,0 +1,16 @@
+<div class="song amplitude-song-container amplitude-play-pause"
+  amplitude-song-index="0">
+  <div class="song-now-playing-icon-container">
+    <div class="play-button-container"></div>
+    <%= image_tag "now-playing.svg", size: 24, class: "now-playing" %>
+  </div>
+  <div class="song-meta-data">
+    <span class="song-title"><%= track.name %></span>
+    <span class="song-artist"><%= track.user_name %></span>
+  </div>
+  <a href="" class="bandcamp-link" target="_blank">
+    <%= image_tag "soundcloud.ico", size: 24, class: "bandcamp-grey" %>
+    <%= image_tag "soundcloud.ico", size: 24, class: "bandcamp-white" %>
+  </a>
+  <span class="song-duration">3:30</span>
+</div>

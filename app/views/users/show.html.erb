@@ -35,6 +35,14 @@
         <%= render @user.likes %>
       </div>
       <div id="collection" class="tab-pane fade">
+        <table class="table table-hover table-striped">
+          <tr>
+            <th class="col-md-1"></th>
+            <th class="col-md-8"></th>
+            <th class="col-md-3"></th>
+          </tr>
+          <%= render @user.playlists %>
+        </table>
       </div>
     </div>
   </div>

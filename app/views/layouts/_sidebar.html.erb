@@ -1,9 +1,11 @@
-<% if user_signed_in? %>
-  <%= render "shared/recommendation",
-    tracks: current_user.recommended_or_top("track"),
-    users: current_user.recommended_or_top("user") %>
-<% else %>
-  <%= render "shared/recommendation",
-    tracks: Track.top(count: 3),
-    users: User.top(count: 3) %>
-<% end %>
+<div class="scrollable">
+  <% if user_signed_in? %>
+    <%= render "shared/recommendation",
+      tracks: current_user.recommended_or_top("track"),
+      users: current_user.recommended_or_top("user") %>
+  <% else %>
+    <%= render "shared/recommendation",
+      tracks: Track.top(count: Settings.recommendation.top.tracks),
+      users: User.top(count: Settings.recommendation.top.users) %>
+  <% end %>
+</div>

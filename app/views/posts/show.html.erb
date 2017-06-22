@@ -1,31 +1,29 @@
-<div class="row">
-  <div class="col-lg-8">
-    <%= render "post",
-      post: @post, comment: @comment, comments: @comments %>
-    <span class="like_form">
-      <%= render "likes/like_form", post: @post %>
-    </span>
-    <div class="well" id="well">
-      <h4><%= t "comment.leave_a_comment" %></h4>
-      <%= form_for @comment, url: comments_path, html: {method: :post},
-        remote: true  do |f| %>
-        <%= render "shared/error_messages", object: f.object %>
-        <%= f.hidden_field :post_id, value: @post.id %>
-        <div class="col-md-10">
-          <%= f.text_area :content,
-            placeholder: t("comment.compose_new_comment"),
-            class: "form-control" %>
-        </div>
-        <div class="col-md-2">
-          <%= f.submit t("comment.submit"), class: "btn btn-primary" %>
-        </div>
-      <% end %>
-    </div>
-    <div id="comments">
-      <%= render @comments %>
-    </div>
+<div class="col-lg-8">
+  <%= render "post",
+    post: @post, comment: @comment, comments: @comments %>
+  <span class="like_form">
+    <%= render "likes/like_form", post: @post %>
+  </span>
+  <div class="well" id="well">
+    <h4><%= t "comment.leave_a_comment" %></h4>
+    <%= form_for @comment, url: comments_path, html: {method: :post},
+      remote: true  do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+      <%= f.hidden_field :post_id, value: @post.id %>
+      <div class="col-md-10">
+        <%= f.text_area :content,
+          placeholder: t("comment.compose_new_comment"),
+          class: "form-control" %>
+      </div>
+      <div class="col-md-2">
+        <%= f.submit t("comment.submit"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-  <div class="col-lg-4">
-    <%= render "layouts/sidebar" %>
+  <div id="comments">
+    <%= render @comments %>
   </div>
+</div>
+<div class="col-lg-4">
+  <%= render "layouts/sidebar" %>
 </div>

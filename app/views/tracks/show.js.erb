@@ -1,0 +1,11 @@
+$('#amplitude-right').html("<%= j render "shared/track_player", track: @track %>");
+Amplitude.init({
+  songs: [
+    {
+       "name": "<%= @track.name %>",
+       "artist": "<%= @track.user_name %>",
+       "url": "<%= @track.url %>",
+    }
+  ],
+  "autoplay": true
+})

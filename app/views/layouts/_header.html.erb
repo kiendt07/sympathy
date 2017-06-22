@@ -20,14 +20,6 @@
         <li class="<%= active_class explore_path %>">
           <%= link_to t(".explore"), explore_path %>
         </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-              role="button" aria-haspopup="true" aria-expanded="false">
-            <%= t ".category" %> <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-          </ul>
-        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>

@@ -1,0 +1,24 @@
+<div class="col-md-8">
+  <%= link_to @playlist do %>
+    <h3 class="text-center"><%= @playlist.name %></h3>
+  <% end %>
+  <div class="text-center">
+    <small><%= distance_of_time_in_words @playlist.created_at, Time.now %>
+      <%= t ".ago" %>
+    </small>
+  </div>
+  <% @playlist.tracks.each do |track| %>
+    <%= render track.first_shared_post %>
+  <% end %>
+</div>
+<div class="col-md-4">
+  <h4 class="text-center"><%= t ".my_playlist" %></h4>
+  <table class="table table-hover table-striped">
+    <tr>
+      <th class="col-md-1"></th>
+      <th class="col-md-8"><%= t ".playlist_name" %></th>
+      <th class="col-md-3"></th>
+    </tr>
+    <%= render current_user.playlists %>
+  </table>
+</div>

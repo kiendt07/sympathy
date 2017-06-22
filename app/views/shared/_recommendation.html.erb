@@ -1,4 +1,8 @@
 <div class="row recommended-tracks">
+  <p>
+    <span class="glyphicon glyphicon-music"></span>
+    <%= t ".songs_for_you" %>
+  </p>
   <% tracks.each do |track| %>
     <div class="recommended-track panel">
       <%= link_to post_path(track.first_shared_post) do %>
@@ -22,22 +26,35 @@
 <hr>
 
 <div class="row recommended-users">
+  <p>
+    <span class="glyphicon glyphicon-user"></span>
+    <%= t ".who_to_follow" %>
+  </p>
   <% users.each do |user| %>
     <div class="recommended_user panel">
       <%= link_to user_path(user) do %>
-        <span class="circle user-avatar"
-          data-user-avatar="<%= user.avatar %>">
-        </span>
-        <span><%= user.name || user.email %></span>
+        <div class="row">
+          <div class="col-sm-2">
+            <span class="circle user-avatar"
+              data-user-avatar="<%= user.avatar %>">
+            </span>
+          </div>
+          <div class="col-md-8">
+            <span><%= user.name || user.email %></span><br>
+            <span class="glyphicon glyphicon-user"></span>
+            <span><%= user.followers.count %></span>
+          </div>
+          <div class="col-md-2">
+            <span>
+              <% if user_signed_in? && user.id != current_user.id %>
+                <% relationship = current_user.relationship_with user %>
+                <%= render "users/follow_form",
+                  user: user, relationship: relationship %>
+              <% end %>
+            </span>
+          </div>
+        </div>
       <% end %>
-      <div>
-        <%= render "shared/stats", user: user %>
-        <% if user_signed_in? && user.id != current_user.id %>
-          <% relationship = current_user.relationship_with user %>
-          <%= render "users/follow_form",
-            user: user, relationship: relationship %>
-        <% end %>
-      </div>
     </div>
   <% end %>
 </div>

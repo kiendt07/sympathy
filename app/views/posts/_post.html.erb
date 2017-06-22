@@ -1,12 +1,8 @@
-<div class="post panel" id="post_<%= post.id %>">
+<div class="post panel" id="post_<%= post.id %>" data-post-id="<%= post.id %>">
   <% if post.content.is_post? %>
     <small>
       <%= link_to post.user_name || post.user_email, user_path(post.user) %>
-      <%= t ".reposted_this" %>
-    </small>
-    <small class="pull-right">
-      <span class="glyphicon glyphicon-time"></span>
-      <%= distance_of_time_in_words post.created_at, Time.now %>
+      <%= link_to t(".reposted_this"), post_path(post) %>
     </small>
   <% end %>
 
@@ -20,6 +16,11 @@
     </div>
   <% end %>
   <div class="post-action">
+    <%= link_to post_path(post) do %>
+      <span class="glyphicon glyphicon-comment"></span>
+      <%= post.comments.count %>
+    <% end %>
+    |
     <%= link_to t(".share"), post_shareds_path(post_id: post.id),
       method: :post %>
     <%= link_to t(".delete"), post_path(post),
