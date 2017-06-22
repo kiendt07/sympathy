@@ -1,3 +1,7 @@
+$pinky: #f78;
+$black: #000;
+$white: #fff;
+
 .user-info {
   position: relative;
 
@@ -6,4 +10,63 @@
     position: absolute;
     top: 0;
   }
+}
+
+.dropdown {
+  display: inline-block;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.glyphicon-bell {
+  font-size: 1.5rem;
+}
+
+.notifications {
+  min-width: 420px;
+}
+
+.notifications-wrapper {
+  max-height: 250px;
+  overflow: auto;
+}
+
+.menu-title {
+  color: $pinky;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.glyphicon-circle-arrow-right {
+  margin-left: 10px;
+}
+
+.notification-footer,
+.notification-heading {
+  padding: 2px 10px;
+}
+
+.dropdown-menu.divider {
+  margin: 5px 0;
+}
+
+.item-title {
+  color: $black;
+  font-size: 1.3rem;
+}
+
+.item-info {
+  margin: 0;
+}
+
+.notifications a.content {
+  background: $white;
+  text-decoration: none;
+}
+
+.notification-item {
+  background: $white;
+  border-radius: 4px;
+  margin: 5px;
+  padding: 5px 10px;
 }

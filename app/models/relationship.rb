@@ -7,6 +7,9 @@ class Relationship < ApplicationRecord
   after_save :recommendable_follow
   after_destroy :recommendable_unfollow
 
+  attr_accessor :notification
+  after_save :save_notification
+
   private
 
   def recommendable_follow

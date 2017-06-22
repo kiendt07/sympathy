@@ -6,4 +6,7 @@ class Comment < ApplicationRecord
   delegate :name, to: :user, prefix: true
   belongs_to :post
   validates :content, presence: true
+
+  attr_accessor :notification
+  after_save :save_notification
 end

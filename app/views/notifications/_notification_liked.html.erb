@@ -1,0 +1,14 @@
+<%= link_to notification.reference_to do %>
+  <div class="notification-item">
+    <h4 class="item-title">
+    <strong><%= notification.notified_by.name %></strong>
+    <%= notification.notice_type %>
+    <%= t ".your_post" %>
+    ·
+    <%= distance_of_time_in_words notification.created_at, Time.now %> ago</h4>
+    <p class="item-info">
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+      <%= notification.notificationable.post.original_content_name %>
+    </p>
+  </div>
+<% end %>

@@ -3,10 +3,13 @@ class Like < ApplicationRecord
   belongs_to :user
   belongs_to :post
 
-  has_many :notifications, as: :notificationable
+  has_many :notifications, as: :notificationable, dependent: :destroy
 
   after_save :recommendable_like
   after_destroy :recommendable_unlike
+
+  attr_accessor :notification
+  after_save :save_notification
 
   private
 

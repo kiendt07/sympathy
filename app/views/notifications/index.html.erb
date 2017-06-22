@@ -1,0 +1,8 @@
+<div class="col-md-4 col-md-offset-4">
+  <% @notifications.each do |notification| %>
+    <div class="row">
+      <%= render "notifications/notification", notification: notification %>
+    </div>
+  <% end %>
+  <%= will_paginate @feeds %>
+</div>

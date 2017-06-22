@@ -27,4 +27,7 @@ Rails.application.routes.draw do
   resources :playlists, only: [:index]
   resources :playlistings, only: [:create]
   resources :comments, only: [:create]
+  resources :notifications, only: [:index]
+
+  mount ActionCable.server => '/cable'
 end

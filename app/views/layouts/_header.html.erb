@@ -35,6 +35,7 @@
             <%= link_to t(".new_track"), new_track_path,
               class: "btn new-track" %>
           </li>
+          <%= render "notifications/notifications_dropdown" %>
           <li class="dropdown">
             <a class="dropdown-toggle circle user-avatar"
               data-toggle="dropdown"

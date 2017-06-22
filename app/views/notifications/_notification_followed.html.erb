@@ -1,0 +1,15 @@
+<%= link_to notification.reference_to do %>
+  <div class="notification-item">
+  <h4 class="item-title">
+    <strong><%= notification.notified_by.name %></strong>
+    <%= notification.notice_type %>
+    <strong>you</strong>
+    ·
+    <%= distance_of_time_in_words notification.created_at, Time.now %> ago</h4>
+    <p class="item-info">
+      <%= link_to "", notification.notified_by, class: "user-avatar",
+        data: {"user-avatar": notification.notified_by.avatar} %>
+      <%= notification.notified_by.name %>
+    </p>
+  </div>
+<% end %>

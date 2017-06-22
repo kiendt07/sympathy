@@ -20,6 +20,7 @@
 //= require jquery-fileupload/jquery.iframe-transport
 //= require turbolinks
 //= require_tree .
+//= require_tree ./channels
 
 $(document).on('turbolinks:load', function(){
   var userAvatars = $('.user-avatar');

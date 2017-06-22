@@ -3,7 +3,9 @@ class LikesController < ApplicationController
   load_and_authorize_resource
 
   def create
-    current_user.likes.create post: @post
+    @like = current_user.real_likes.create post: @post
+    push_notification @like.notification, @like.post.user unless
+      @like.post.user.id == current_user.id
     respond_to do |format|
       format.js
     end

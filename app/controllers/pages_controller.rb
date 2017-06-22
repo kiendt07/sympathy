@@ -12,6 +12,6 @@ class PagesController < ApplicationController
 
   def show
     @feeds = current_user.feeds.paginate page: params[:page],
-      per_page: Settings.user.per_page
+      per_page: Settings.users.per_page
   end
 end

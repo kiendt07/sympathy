@@ -16,6 +16,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
+  def push_notification notification, to_user
+    html = ApplicationController.render partial: "notifications/notification",
+      locals: {notification: notification}, format: [:html]
+    ActionCable.server.broadcast "notifications-#{to_user.id}",
+      html: html
+  end
+
   private
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit :sign_up, keys: [:name, :email,

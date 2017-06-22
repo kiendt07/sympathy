@@ -15,6 +15,7 @@ class RelationshipsController < ApplicationController
     current_user.follow @user
     @relationship = current_user.active_relationships
       .find_by followed_id: @user.id
+    push_notification @relationship.notification, @relationship.followed
     respond_to do |format|
       format.html{redirect_to @user}
       format.js

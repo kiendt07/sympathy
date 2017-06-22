@@ -1,0 +1,29 @@
+<li class="dropdown">
+  <a id="dLabel" role="button" data-toggle="dropdown" data-target="#"
+    href="/page.html">
+    <i class="glyphicon glyphicon-bell"></i>
+  </a>
+  <ul class="dropdown-menu notifications" role="menu" aria-labelledby="dLabel">
+    <div class="notification-heading">
+      <h4 class="menu-title"><%= t ".notification" %></h4>
+      <h4 class="menu-title pull-right">
+        <%= link_to notifications_path do %>
+          <i class="glyphicon glyphicon-circle-arrow-right"></i>
+          <%= t ".view_all" %>
+        <% end %>
+      </h4>
+    </div>
+    <li class="divider"></li>
+   <div class="notifications-wrapper">
+     <% current_user.notifications.newest_first.
+       limit(Settings.notifications.dropdown).each do |notification| %>
+       <%= render "notifications/notification", notification: notification %>
+     <% end %>
+   </div>
+    <li class="divider"></li>
+    <%= link_to notifications_path do %>
+      <i class="glyphicon glyphicon-circle-arrow-right"></i>
+      <%= t ".view_all" %>
+    <% end %>
+  </ul>
+</li>

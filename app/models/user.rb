@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :identities
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :real_likes, dependent: :destroy, class_name: "Like"
   has_many :tracks, dependent: :destroy
   has_many :playlists, dependent: :destroy
   has_many :notifications, dependent: :destroy
@@ -45,6 +45,10 @@ class User < ApplicationRecord
 
   def following_ids
     self.active_relationships.where(follower_id: self.id).map(&:id)
+  end
+
+  def like? post
+    self.real_likes.find_by(post_id: post.id) ? true : false
   end
 
   def unfollow other_user

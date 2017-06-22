@@ -10,6 +10,7 @@ class Ability
       can :manage, Comment
       can :manage, Playlist
       can :manage, Playlisting
+      can :manage, Notification
     end
     can [:create, :destroy], Like, user_id: user.id
   end
