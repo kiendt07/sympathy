@@ -1,2 +1,6 @@
 users:
   per_page: 15
+recommendation:
+  top:
+    tracks: 3
+    users: 3

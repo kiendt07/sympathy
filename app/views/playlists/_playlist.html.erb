@@ -1,5 +1,15 @@
-<div class="playlist">
-  <% playlist.tracks.each do |track| %>
-    <%= render "tracks/track", track: track %>
-  <% end %>
-</div>
+<tr>
+  <td>
+    <%= link_to playlist_path(playlist) do %>
+      <span class="glyphicon glyphicon-play-circle"></span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to playlist_path(playlist, format: :js), remote: true do %>
+      <%= playlist.name %></td>
+    <% end %>
+  <td>
+    <span class="glyphicon glyphicon-music"></span>
+    <%= playlist.tracks.count %>
+  </td>
+</tr>

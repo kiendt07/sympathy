@@ -1,7 +1,18 @@
 <% provide :title, t(".title") %>
 <div class="col-md-8">
-  <%= render "pages/feeds", feeds: @feeds %>
-  <%= will_paginate @feeds %>
+  <% if @feeds.any? %>
+    <%= render "pages/feeds", feeds: @feeds %>
+    <%= will_paginate @feeds %>
+  <% else %>
+    <p class="text-center">
+      <%= t ".nothing" %>
+      <br>
+      <%= t ".exlore" %><strong><%= t "dictionary.site_name" %></strong>
+    </p>
+    <div class="text-center">
+      <%= link_to t(".explore"), explore_path, class: 'btn btn-lg btn-primary' %>
+    </div>
+  <% end %>
 </div>
 <div class="col-md-4">
   <%= render "layouts/sidebar" %>

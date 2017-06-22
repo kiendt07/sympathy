@@ -1,0 +1,15 @@
+var tracks = [];
+<% @playlist.tracks.each do |track| %>
+  $('#amplitude-right').append("<%= j render "shared/track_player", track: track %>")
+  tracks.push({
+    {
+       "name": "<%= track.name %>",
+       "artist": "<%= track.user_name %>",
+       "url": "<%= track.url %>",
+    }
+  })
+<% end %>
+Amplitude.init({
+  "songs": tracks,
+  "autoplay": true
+})

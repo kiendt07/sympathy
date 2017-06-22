@@ -27,7 +27,8 @@ en:
     show:
       title: "Home "
       profile: "Profile"
-
+      nothing: "There is nothing around here"
+      explore: "Let's explore new music and follow cool people on "
   devise:
     passwords:
       edit:
@@ -35,6 +36,9 @@ en:
     shared:
       links:
         submit: "Submit"
+      recommendation:
+        songs_for_you: "Songs for you"
+        who_to_follow: "Who to follow"
     confirmations:
       new:
         title: "Comfirmation"
@@ -90,6 +94,10 @@ en:
     create:
       added: "added to the playlist"
       success: "Success!"
+    show:
+      ago: "ago"
+      my_playlist: "My playlist"
+      playlist_name: "Playlist name"
   playlistings:
     create:
       failed: "We're so sorry!"
