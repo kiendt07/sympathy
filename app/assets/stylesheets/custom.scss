@@ -6,6 +6,11 @@ $gray-medium-light: #eaeaea;
 $red: #f00;
 $blue: #00f;
 $b: #bbb;
+$light-grey: #d3d3d3;
+$black: #000;
+$white: #fff;
+$mat-grey: #666;
+$milk: #e5e5e5;
 
 @mixin box-sizing {
   box-sizing: border-box;
@@ -165,7 +170,6 @@ select,
   @include box-sizing;
   border: 1px solid $b;
   margin-bottom: 15px;
-  width: 100%;
 }
 
 .error-explanation {
@@ -231,4 +235,68 @@ select,
   color: $gray-light;
   display: block;
   font-size: 12px;
+}
+
+.cover-wrapper {
+  background-attachment: scroll;
+  background-image: image-url('background_index.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+
+  .hero-intro {
+    color: $white;
+    font-size: 32px;
+    margin: 0 0 40px;
+    text-align: center;
+  }
+}
+
+.navbar .btn.landing-page {
+  background-color: $light-grey;
+  float: right;
+  font-weight: 600;
+  margin-right: 60px;
+  position: relative;
+  top: 80px;
+}
+
+.navbar.navbar-inverse {
+  border-radius: 0;
+  box-shadow: 0 0 10px $black;
+}
+
+.container > a:nth-child(1) > h2:nth-child(2),
+.cover-wrapper .index h2 {
+  color: $white;
+  position: relative;
+  top: 10px;
+}
+
+.header-search {
+  margin: 0 auto;
+  width: 450px;
+
+  input {
+    background: $milk;
+    border: 0;
+    border-radius: 4px;
+    color: $mat-grey;
+    font-size: 14px;
+    height: 40px;
+    line-height: 20px;
+    outline: 0;
+    padding-left: 12px;
+    width: 100%;
+  }
+}
+
+.index {
+  color: $black;
+  left: 0;
+  position: absolute;
+  top: 40%;
+  width: 100%;
 }

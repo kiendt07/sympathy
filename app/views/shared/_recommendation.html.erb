@@ -1,0 +1,43 @@
+<div class="row recommended-tracks">
+  <% tracks.each do |track| %>
+    <div class="recommended-track panel">
+      <%= link_to post_path(track.first_shared_post) do %>
+        <h3>
+          <span class="glyphicon glyphicon-music"></span> <%= track.name %>
+        </h3>
+      <% end %>
+      <div>
+        <small>
+          <%= link_to track.user_name, user_path(track.user) %>
+        </small>
+        <small class="pull-right">
+          <span class="glyphicon glyphicon-play"></span>
+          <%= track.unique_impression_count %>
+        </small>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<hr>
+
+<div class="row recommended-users">
+  <% users.each do |user| %>
+    <div class="recommended_user panel">
+      <%= link_to user_path(user) do %>
+        <span class="circle user-avatar"
+          data-user-avatar="<%= user.avatar %>">
+        </span>
+        <span><%= user.name || user.email %></span>
+      <% end %>
+      <div>
+        <%= render "shared/stats", user: user %>
+        <% if user_signed_in? && user.id != current_user.id %>
+          <% relationship = current_user.relationship_with user %>
+          <%= render "users/follow_form",
+            user: user, relationship: relationship %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
