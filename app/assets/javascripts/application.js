@@ -18,6 +18,7 @@
 //= require jquery-fileupload/vendor/jquery.ui.widget
 //= require jquery-fileupload/jquery.fileupload
 //= require jquery-fileupload/jquery.iframe-transport
+//= require amplitude
 //= require turbolinks
 //= require_tree .
 
@@ -27,6 +28,38 @@ $(document).on('turbolinks:load', function(){
     var url = $(this).data('user-avatar');
     $(this).css('background-image', 'url('+ url +')');
   });
+
+  $('.bandcamp-link').on('click', function (e) {
+
+    e.stopPropagation();
+  });
+
+  jQuery('.song').on('mouseover', function () {
+    jQuery(this).css('background-color', '#00A0FF');
+    jQuery(this).find('.song-meta-data .song-title').css('color', '#FFFFFF');
+    jQuery(this).find('.song-meta-data .song-artist').css('color', '#FFFFFF');
+    if (!jQuery(this).hasClass('amplitude-active-song-container')) {
+      jQuery(this).find('.play-button-container').css('display', 'block');
+    }
+    jQuery(this).find('img.bandcamp-grey').css('display', 'none');
+    jQuery(this).find('img.bandcamp-white').css('display', 'block');
+    jQuery(this).find('.song-duration').css('color', '#FFFFFF');
+  });
+
+  jQuery('.song').on('mouseout', function () {
+    jQuery(this).css('background-color', '#FFFFFF');
+    jQuery(this).find('.song-meta-data .song-title').css('color', '#272726');
+    jQuery(this).find('.song-meta-data .song-artist').css('color', '#607D8B');
+    jQuery(this).find('.play-button-container').css('display', 'none');
+    jQuery(this).find('img.bandcamp-grey').css('display', 'block');
+    jQuery(this).find('img.bandcamp-white').css('display', 'none');
+    jQuery(this).find('.song-duration').css('color', '#607D8B');
+  });
+
+  jQuery('.song').on('click', function () {
+    jQuery(this).find('.play-button-container').css('display', 'none');
+  });
+
 });
 
 jQuery.extend(window, Routes);

@@ -1,15 +1,21 @@
+$('#amplitude-right').html("");
+
 var tracks = [];
 <% @playlist.tracks.each do |track| %>
-  $('#amplitude-right').append("<%= j render "shared/track_player", track: track %>")
   tracks.push({
-    {
-       "name": "<%= track.name %>",
-       "artist": "<%= track.user_name %>",
-       "url": "<%= track.url %>",
-    }
-  })
+    "name": "<%= track.name %>",
+    "url": "<%= track.url %>"
+  });
+  $('#amplitude-right').append(
+    "<%= j render "shared/track_player", track: track %>"
+  );
 <% end %>
+
 Amplitude.init({
   "songs": tracks,
   "autoplay": true
-})
+});
+
+$("#playlist-<%= @playlist.id %> .visual-icon").html(
+  "<%= j image_tag("visualizer.gif", size: 14) %>"
+)

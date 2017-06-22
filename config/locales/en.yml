@@ -67,6 +67,7 @@ en:
     post:
       share: "Share"
       delete: "Delete"
+      reposted_this: "reposted"
     add_to_playlist:
       new_playlist: "New playlist"
   users:

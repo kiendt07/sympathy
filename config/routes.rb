@@ -21,10 +21,11 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :shareds, only: [:create]
     resources :playlists, only: [:create]
+    resources :impressions, only: [:create]
   end
   resources :signed_urls, only: :index
-  resources :tracks, only: [:new, :create]
-  resources :playlists, only: [:index]
+  resources :tracks, only: [:new, :create, :show]
+  resources :playlists, only: [:index, :show]
   resources :playlistings, only: [:create]
   resources :comments, only: [:create]
 end

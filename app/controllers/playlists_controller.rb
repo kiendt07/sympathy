@@ -16,6 +16,21 @@ class PlaylistsController < ApplicationController
     end
   end
 
+  def show
+    @tracks = @playlist.tracks.map do |track|
+      {
+        id: track.id,
+        name: track.name,
+        artist: track.user_name,
+        url: track.url,
+      }
+    end
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+
   private
 
   def create_params

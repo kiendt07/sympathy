@@ -1,5 +1,5 @@
 class TracksController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  load_and_authorize_resource
 
   def new
     @track = current_user.tracks.build
@@ -13,6 +13,13 @@ class TracksController < ApplicationController
     else
       flash[:danger] = t ".flash.danger"
       redirect_to new_track_path
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

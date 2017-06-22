@@ -1,6 +1,6 @@
-<tr>
+<tr id="playlist-<%= playlist.id %>">
   <td>
-    <%= link_to playlist_path(playlist) do %>
+    <%= link_to playlist_path(playlist), class: "visual-icon" do %>
       <span class="glyphicon glyphicon-play-circle"></span>
     <% end %>
   </td>
